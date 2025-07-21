@@ -6,7 +6,7 @@ export default function Home() {
     <main className="max-w-prose mt-20 h-screen w-screen mx-auto py-20 px-4 flex flex-col items-left">
       <h1 className="text-6xl mb-4">Konstade</h1>
       <p className="mb-8">
-        This is my personal corner of the internet where I explore ideas and share notes.
+        My name is Isidor Manning. I am curious about computer science, AI, mathematics, physics, and philosophy. This is a place for me and my passions.  
       </p>
       <ul className="space-y-2">
         <li>
