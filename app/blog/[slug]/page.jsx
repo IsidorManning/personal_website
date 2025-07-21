@@ -12,11 +12,16 @@ export default async function PostPage({ params }) {
   if (!post) notFound()
   const Component = post.component
   return (
-    <article className="prose prose-invert mx-auto py-8">
-      <h1 className="mb-4 font-bold text-3xl font-syne">
-        {post.title}
-      </h1>
-      <Component />
+    <article className="mx-auto max-w-prose px-4 py-8 min-h-screen mt-20">
+      <header className="mb-8 border-b border-muted pb-4">
+        <h2 className=" text-3xl font-bold">{post.title}</h2>
+        {post.date && (
+          <p className="mt-1 text-sm text-accentgray">{post.date}</p>
+        )}
+      </header>
+      <div className="post-content leading-relaxed">
+        <Component />
+      </div>
     </article>
   );
 }

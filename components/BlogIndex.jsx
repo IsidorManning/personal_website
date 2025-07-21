@@ -1,6 +1,19 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
+import AnimatedLink from './AnimatedLink.jsx';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from './ui/accordion.jsx';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '@/components/ui/select.jsx';
 
 export default function BlogIndex({ posts }) {
   const [order, setOrder] = useState('desc');
@@ -18,33 +31,35 @@ export default function BlogIndex({ posts }) {
   }
 
   return (
-    <div className="max-w-prose mx-auto py-8">
+    <div className="max-w-prose mx-auto py-8 h-screen mt-20">
       <div className="mb-6">
-        <label className="mr-2">Sort:</label>
-        <select
-          value={order}
-          onChange={(e) => setOrder(e.target.value)}
-          className="border px-2 py-1"
-        >
-          <option value="desc">Newest first</option>
-          <option value="asc">Oldest first</option>
-        </select>
+        <Select value={order} onValueChange={setOrder}>
+          <SelectTrigger className="w-[160px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="desc">Newest first</SelectItem>
+            <SelectItem value="asc">Oldest first</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-      {Object.entries(categories).map(([cat, list]) => (
-        <details key={cat} className="mb-4">
-          <summary className="cursor-pointer font-semibold">{cat}</summary>
-          <ul className="ml-4 mt-2 space-y-1">
-            {list.map((p) => (
-              <li key={p.slug} className="flex gap-2">
-                <Link href={`/blog/${p.slug}`} className="underline">
-                  {p.title}
-                </Link>
-                <span className="text-sm text-gray-500">{p.date}</span>
-              </li>
-            ))}
-          </ul>
-        </details>
-      ))}
+      <Accordion type="single" collapsible className="w-full">
+        {Object.entries(categories).map(([cat, list]) => (
+          <AccordionItem key={cat} value={cat} className="mb-2">
+            <AccordionTrigger className="font-semibold text-2xl">(+) {cat}</AccordionTrigger>
+            <AccordionContent>
+              <ul className="ml-4 mt-2 space-y-1">
+                {list.map((p) => (
+                  <li key={p.slug} className="flex gap-2">
+                    <AnimatedLink className="text-md" href={`/blog/${p.slug}`}>{p.title}</AnimatedLink>
+                    <span className="text-sm text-gray-400">{p.date}</span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 }
