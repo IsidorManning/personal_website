@@ -31,10 +31,10 @@ export default function BlogIndex({ posts }) {
   }
 
   return (
-    <div className="max-w-prose mx-auto py-8 h-screen mt-20">
+    <div className="max-w-prose mx-auto p-8 h-screen mt-10">
       <div className="mb-6">
         <Select value={order} onValueChange={setOrder}>
-          <SelectTrigger className="w-[160px]">
+          <SelectTrigger className="w-[160px] hover:cursor-pointer">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -46,7 +46,9 @@ export default function BlogIndex({ posts }) {
       <Accordion type="single" collapsible className="w-full">
         {Object.entries(categories).map(([cat, list]) => (
           <AccordionItem key={cat} value={cat} className="mb-2">
-            <AccordionTrigger className="font-semibold text-2xl">(+) {cat}</AccordionTrigger>
+            <AccordionTrigger className="font-semibold hover:brightness-[0.8] transition text-2xl hover:no-underline hover:cursor-pointer">
+              [+] {cat}
+            </AccordionTrigger>
             <AccordionContent>
               <ul className="ml-4 mt-2 space-y-1">
                 {list.map((p) => (
