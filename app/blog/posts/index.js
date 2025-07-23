@@ -1,5 +1,7 @@
 const modules = {
   'weird-or-perfect': () => import('./weird-or-perfect.mdx'),
+  'goals-as-directions': () => import('./goals-as-directions.mdx'),
+  'marketing-is-hard': () => import('./marketing-is-hard.mdx'),
 };
 
 export async function getAllPosts() {
