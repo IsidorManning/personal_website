@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -9,9 +11,35 @@ export default function Footer() {
         font-syne font-bold text-[8vw] text-mist whitespace-nowrap">
         ALL KONSTADE
       </span>
-      <div className="relative z-10 text-center space-y-1 font-bold">
-        <p className="text-sm">isidormanning@gmail.com</p>
+      <div className="relative z-10 text-center text-black space-y-1 font-bold">
         <p>©2025</p>
+      </div>
+      <div className='bg-[#C084FC] absolute bottom-0 flex items-center justify-center w-full h-7'>
+        <Link
+          href='https://github.com/IsidorManning/'
+          className='hover:scale-[1.05] transition'
+        >
+          <Image 
+            width={25}
+            height={25}
+            alt='Github Profile'
+            src="/brand-github.svg"
+            className='w-6 h-6 text-white '
+          />
+        </Link>
+        <Link
+          href='mailto:isidormanning@gmail.com'
+          className='ml-2 hover:scale-[1.05] transition'
+        >
+          <Image 
+            width={25}
+            height={25}
+            alt='Github Profile'
+            src="/mail.svg"
+            className='w-6 h-6 text-white font-white white c-white '
+          />
+        </Link>
+
       </div>
     </footer>
   );

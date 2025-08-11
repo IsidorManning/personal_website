@@ -2,6 +2,15 @@ const modules = {
   'weird-or-perfect': () => import('./weird-or-perfect.mdx'),
   'goals-as-directions': () => import('./goals-as-directions.mdx'),
   'marketing-is-hard': () => import('./marketing-is-hard.mdx'),
+  'can-ai-think': () => import('./can-ai-think.mdx'),
+  'infinite-knowledge': () => import('./infinite-knowledge.mdx'),
+  'knowledge-synthesizing': () => import('./knowledge-synthesizing.mdx'),
+  'my-anemoia': () => import('./my-anemoia.mdx'),
+  'subtleties-scale': () => import('./subtleties-scale.mdx'),
+  'what-about': () => import('./what-about.mdx'),
+  'you-explore': () => import('./you-explore.mdx'),
+  'rtfp-1': () => import('./rtfp-1.mdx'),
+
 };
 
 export async function getAllPosts() {
